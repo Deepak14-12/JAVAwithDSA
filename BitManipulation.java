@@ -1,5 +1,9 @@
 import java.util.Scanner;
-
+/**
+*This file contains a collection of utility methods to perform various bit manipulation operations. 
+*These operations include checking if a number is odd or even, getting, setting, or clearing specific bits, and other advanced bitwise computations. 
+*The main method provides an interactive interface for testing these functionalities
+*/
 public class BitManipulation {
 	public static void oddOrEven(int n) {
 		int bitmask = 1;
