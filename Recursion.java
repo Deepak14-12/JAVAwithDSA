@@ -66,8 +66,8 @@ public class Recursion {
 		return isSorted(arr, i + 1);
 	}
 
-        //  find the first occurance of a mnumber in an array
-	public static int firstOccurance(int[] arr, int key, int i) {
+        //  find the first occurrance of a mnumber in an array
+	public static int firstOccurrence(int[] arr, int key, int i) {
 
 		// base case
 		if (i == arr.length - 1) {
@@ -78,17 +78,17 @@ public class Recursion {
 			return i;
 		}
 
-		return firstOccurance(arr, key, i + 1);
+		return firstOccurrence(arr, key, i + 1);
 	}
 	
-        //  find the last occurance of a mnumber in an array
-	public static int lastOccurance(int[] arr, int key, int i) {
+        //  find the last occurrence of a mnumber in an array
+	public static int lastOccurrence(int[] arr, int key, int i) {
 		// base case
 		if (i == arr.length) {
 			return -1;
 		}
 
-		int isFound = lastOccurance(arr, key, i + 1);
+		int isFound = lastOccurrence(arr, key, i + 1);
 
 		if (isFound == -1 && arr[i] == key)
 			return i;
@@ -106,7 +106,7 @@ public class Recursion {
 		int arr[] = { 8, 3, 6, 9, 5, 10, 2, 5, 3 };
 		// System.out.println(isSorted(arr, 0));
 
-		System.out.println(firstOccurance(arr,4,0));
-                System.out.println(lastOccurance(arr, 5, 0));
+		System.out.println(firstOccurrence(arr,4,0));
+                System.out.println(lastOccurrence(arr, 5, 0));
 	}
 }
