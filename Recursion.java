@@ -51,11 +51,29 @@ public class Recursion {
 		return fibN ; 
 	}
 
+	// check if the array is sorted 0r not
+	public static boolean isSorted(int[] arr, int i) {
+
+		// base case
+		if (i == arr.length - 1) {
+			return true;
+		}
+
+		if (arr[i] > arr[i + 1]) {
+			return false;
+		}
+
+		return isSorted(arr, i + 1);
+	}
+
 	public static void main(String[] args) {
 //		printFromNto1Dsc(5);
 //		printFrom1toN_ASC(5);
 //		System.out.println(facatorial(5));
 //		System.out.println(printSumOf_N_NaturalNumbers(5));
-		System.out.println(printNthFibbonacciNumber(5));
+		// System.out.println(printNthFibbonacciNumber(5));
+
+		int arr[] = { 8, 3, 6, 9, 5, 10, 2, 5, 3 };
+		System.out.println(isSorted(arr, 0));
 	}
 }
