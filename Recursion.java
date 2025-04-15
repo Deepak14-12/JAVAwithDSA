@@ -66,6 +66,36 @@ public class Recursion {
 		return isSorted(arr, i + 1);
 	}
 
+        //  find the first occurance of a mnumber in an array
+	public static int firstOccurance(int[] arr, int key, int i) {
+
+		// base case
+		if (i == arr.length - 1) {
+			return -1;
+		}
+
+		if (arr[i] == key) {
+			return i;
+		}
+
+		return firstOccurance(arr, key, i + 1);
+	}
+	
+        //  find the last occurance of a mnumber in an array
+	public static int lastOccurance(int[] arr, int key, int i) {
+		// base case
+		if (i == arr.length) {
+			return -1;
+		}
+
+		int isFound = lastOccurance(arr, key, i + 1);
+
+		if (isFound == -1 && arr[i] == key)
+			return i;
+
+		return isFound;
+	}
+
 	public static void main(String[] args) {
 //		printFromNto1Dsc(5);
 //		printFrom1toN_ASC(5);
@@ -74,6 +104,9 @@ public class Recursion {
 		// System.out.println(printNthFibbonacciNumber(5));
 
 		int arr[] = { 8, 3, 6, 9, 5, 10, 2, 5, 3 };
-		System.out.println(isSorted(arr, 0));
+		// System.out.println(isSorted(arr, 0));
+
+		System.out.println(firstOccurance(arr,4,0));
+                System.out.println(lastOccurance(arr, 5, 0));
 	}
 }
