@@ -96,6 +96,18 @@ public class Recursion {
 		return isFound;
 	}
 
+	
+	//calculate power of x (eg. x^n)
+	public static int powerX( int x, int n) {
+		// base case
+		if (n == 0) {
+			return 1;
+		}
+		
+		return x * powerX( x, n-1);
+	}
+	
+
 	public static void main(String[] args) {
 //		printFromNto1Dsc(5);
 //		printFrom1toN_ASC(5);
@@ -106,7 +118,10 @@ public class Recursion {
 		int arr[] = { 8, 3, 6, 9, 5, 10, 2, 5, 3 };
 		// System.out.println(isSorted(arr, 0));
 
-		System.out.println(firstOccurrence(arr,4,0));
-                System.out.println(lastOccurrence(arr, 5, 0));
+		// System.out.println(firstOccurrence(arr,4,0));
+  //               System.out.println(lastOccurrence(arr, 5, 0));
+
+		System.out.println(powerX(2,5));
+		
 	}
 }
