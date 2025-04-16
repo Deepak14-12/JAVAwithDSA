@@ -121,6 +121,23 @@ public class Recursion {
 		return totalWays; 
 	}
 
+		// Removed duplicate in a string
+	public static void removeDuplicateInString(String str, int index, StringBuilder newStr, boolean map[]) {
+		if (index == str.length()) {
+			System.out.println(newStr);
+			return;
+		}
+		// work
+		char currentChar = str.charAt(index);
+		if (map[currentChar - 'a'] == true) {
+			// duplicate
+			removeDuplicateInString(str, index + 1, newStr, map);
+		} else {
+			map[currentChar - 'a'] = true;
+			removeDuplicateInString(str, index + 1, newStr.append(currentChar), map);
+		}
+		
+	}
 
 	public static void main(String[] args) {
 //		printFromNto1Dsc(5);
