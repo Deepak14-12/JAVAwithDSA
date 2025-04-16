@@ -154,7 +154,8 @@ public class Recursion {
 
 		// System.out.println(powerX(2,5));
 
-		System.out.println(tillingProblem(4)); // value of n (in floor size 2 x n)
-		
+		// System.out.println(tillingProblem(4)); // value of n (in floor size 2 x n)
+		removeDuplicateInString("deepppaaaaaaaaaaaak", 0,new StringBuilder(""), new boolean[26]);
+
 	}
 }
