@@ -106,7 +106,21 @@ public class Recursion {
 		
 		return x * powerX( x, n-1);
 	}
-	
+
+	// tilling problem
+	public static int tillingProblem(int n) {  //2 x n (floor size)
+		if(n == 0 || n == 1)                   //2 x 1 (tile size)
+		return 1;
+		
+		//vertical choice
+		int verticalChoice = tillingProblem(n-1);
+		//horizontal choice
+		int horizontal =  tillingProblem(n-2);
+		
+		int totalWays  = verticalChoice + horizontal;
+		return totalWays; 
+	}
+
 
 	public static void main(String[] args) {
 //		printFromNto1Dsc(5);
@@ -121,7 +135,9 @@ public class Recursion {
 		// System.out.println(firstOccurrence(arr,4,0));
   //               System.out.println(lastOccurrence(arr, 5, 0));
 
-		System.out.println(powerX(2,5));
+		// System.out.println(powerX(2,5));
+
+		System.out.println(tillingProblem(4)); // value of n (in floor size 2 x n)
 		
 	}
 }
