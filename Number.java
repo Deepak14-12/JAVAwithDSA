@@ -1,6 +1,6 @@
 import java.util.Scanner;
 //Constructor,Constructor overloading,Copy Constructor, method overloading 
-//Manual programming
+//Manual programming, Array Of Object
 
 public class Number {
 	int x;
