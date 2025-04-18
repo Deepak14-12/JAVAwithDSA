@@ -144,6 +144,9 @@ public class Recursion {
 		if(n == 1|| n==2) {
 			return n;
 		}
+		//in single return statement
+		return friendsPairing(n-1) + (n-1) * friendsPairing(n-2);
+		
 		/*
 		//single
 		int fnm1 = friendsPairing(n-1);
@@ -154,11 +157,24 @@ public class Recursion {
 		//totalWAys
 		int totalWays = fnm1 + pairWays;
 		return totalWays;
-		*/
-		
-		//in single return statement
-		return friendsPairing(n-1) + (n-1) * friendsPairing(n-2);
+		*/	
 	}
+
+		// print all binary strings of size N without consecutive ones.
+	  public static void printBinaryStringWC(int n, int lastPlace, String string) 
+	  {
+                 if(n == 0) {
+          	  System.out.println(string);
+        	  return;
+                  }
+		
+		printBinaryStringWC(n - 1, 0, string+"0");
+		if (lastPlace == 0)
+		printBinaryStringWC(n - 1, 1, string+"1");
+
+	}
+
+	
 	public static void main(String[] args) {
 //		printFromNto1Dsc(5);
 //		printFrom1toN_ASC(5);
@@ -177,7 +193,8 @@ public class Recursion {
 		// System.out.println(tillingProblem(4)); // value of n (in floor size 2 x n)
 		// removeDuplicateInString("deepppaaaaaaaaaaaak", 0,new StringBuilder(""), new boolean[26]);
 
-			System.out.println(friendsPairing(3));
+		// System.out.println(friendsPairing(3));
 
+		printBinaryStringWC(3, 0,"");
 	}
 }
