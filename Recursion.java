@@ -201,6 +201,17 @@ public class Recursion {
 		System.out.print(s[lastDigit]+" ");
 	}
 
+	
+	//find length of String
+	public static int lengthOfString(String str) 
+	{
+		//base case
+		if(str.length()==0)
+			return 0;
+		
+		return lengthOfString(str.substring(1)) + 1;
+	} 
+	
 	public static void main(String[] args) {
 //		printFromNto1Dsc(5);
 //		printFrom1toN_ASC(5);
@@ -226,12 +237,14 @@ public class Recursion {
 		// findOccuranceIndices(arr,4,0);
 //-----------------------------------------------------------
 		//covertNumbersInString(num) call 
-		int num = 40;
+		/*int num = 40;
                 if (num == 0) {
                  System.out.print(s[0]);
                 } else {
         	 covertNumbersInString(num);
-                }
+                }*/
 // -----------------------------------------------------
+	lengthOfString("Github"); 
+	
 	}
 }
