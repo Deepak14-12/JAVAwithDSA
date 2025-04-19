@@ -175,6 +175,17 @@ public class Recursion {
 	}
 
 	
+	public static void findOccuranceIndices(int arr[],int key,int i) {
+		//base case
+		if(i == arr.length)
+			return;
+		
+		//main part
+		if(arr[i] == key)
+			System.out.print(i+" ");
+		findOccuranceIndices(arr,key,i+1);
+	}
+
 	public static void main(String[] args) {
 //		printFromNto1Dsc(5);
 //		printFrom1toN_ASC(5);
@@ -182,7 +193,7 @@ public class Recursion {
 //		System.out.println(printSumOf_N_NaturalNumbers(5));
 		// System.out.println(printNthFibbonacciNumber(5));
 
-		int arr[] = { 8, 3, 6, 9, 5, 10, 2, 5, 3 };
+		int arr[] = { 8, 3, 4, 4, 5, 10, 2, 4, 3 };
 		// System.out.println(isSorted(arr, 0));
 
 		// System.out.println(firstOccurrence(arr,4,0));
@@ -195,6 +206,8 @@ public class Recursion {
 
 		// System.out.println(friendsPairing(3));
 
-		printBinaryStringWC(3, 0,"");
+		// printBinaryStringWC(3, 0,"");
+
+		findOccuranceIndices(arr,4,0);
 	}
 }
