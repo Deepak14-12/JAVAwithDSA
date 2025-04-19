@@ -186,6 +186,21 @@ public class Recursion {
 		findOccuranceIndices(arr,key,i+1);
 	}
 
+	//convert number into string and print 
+	static String s[] = {"zero","one","two","three","four","five","six","seven","eight","nine"}; 
+	public static void covertNumbersInString(int number) {
+		
+		//base case
+		if(number == 0)
+			return;
+		
+		//recursive call
+		int lastDigit = number%10;
+		covertNumbersInString(number/10);
+		//print
+		System.out.print(s[lastDigit]+" ");
+	}
+
 	public static void main(String[] args) {
 //		printFromNto1Dsc(5);
 //		printFrom1toN_ASC(5);
@@ -208,6 +223,15 @@ public class Recursion {
 
 		// printBinaryStringWC(3, 0,"");
 
-		findOccuranceIndices(arr,4,0);
+		// findOccuranceIndices(arr,4,0);
+//-----------------------------------------------------------
+		//covertNumbersInString(num) call 
+		int num = 40;
+                if (num == 0) {
+                 System.out.print(s[0]);
+                } else {
+        	 covertNumbersInString(num);
+                }
+// -----------------------------------------------------
 	}
 }
