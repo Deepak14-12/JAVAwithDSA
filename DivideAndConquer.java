@@ -6,7 +6,20 @@ public class DivideAndConquer {
 		}
 	}
 
+	public void mergeSort(int arr[], int startIndex, int endIndex) {
+		// base case
+		if (startIndex >= endIndex)
+			return;
 
+		// recursive case
+		int mid = startIndex + (endIndex - startIndex) / 2;
+//		left part
+		mergeSort(arr, startIndex, mid);
+//		right part
+		mergeSort(arr, mid + 1, endIndex);
+
+		merge(arr, startIndex, mid, endIndex);
+	}
 
 	public void merge(int arr[], int startIndex, int mid, int endIndex) {
 		int temp[] = new int[endIndex - startIndex + 1];
