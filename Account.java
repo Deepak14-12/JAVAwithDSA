@@ -1,3 +1,4 @@
+package collegelab;
 import java.util.Scanner;
 class Account{
 int accNo;
@@ -11,18 +12,27 @@ static int nextAccNo = 1001;
 
 static Scanner s = new Scanner(System.in);
     Account()
-   {
+   {    
+       setAccountHolderDetails();
         accNo = nextAccNo++;
         balance = 0.0f;
+        
+   }
+
+void setAccountHolderDetails()
+{ s.nextLine();
         System.out.println("Enter Account Holder Name: ");
         accHolderName = s.nextLine(); 
+          
         System.out.println("Enter Mobile Number: ");
-        mobileNo = sc.nextLong();    
+        mobileNo = s.nextLong();    
+
         System.out.println("Enter Aadhar Number: ");
-        aadharCard = sc.nextLong();    
+        aadharCard = s.nextLong();    
+           s.nextLine();
         System.out.println("Enter Address: ");
-        aadharCard = sc.nextLine(); 
-   }
+        address = s.nextLine(); 
+ }
 
 void deposite(double amt)
 { System.out.println("Amount Deposited In Account..");
@@ -59,13 +69,13 @@ void getAccountHolderDetails()
  void setMobile()
  {
     System.out.println("Enter Mobile Number: ");
-        mobileNo = sc.nextLong();  
+        mobileNo = s.nextLong();  
   }
 
  void setAddress()
  {
    System.out.println("Enter Address: ");
-   aadharCard = sc.nextLine(); 
+   address = s.nextLine(); 
   }
 
  void updateDetails()
@@ -73,7 +83,7 @@ void getAccountHolderDetails()
   boolean b = true;
   while(b)
   {
-   System.out.println("1. Update Mobile Number\n2. Update Address\n3.Previous Menu");
+   System.out.println("1. Update Mobile Number\n2. Update Address\n3. Previous Menu");
    System.out.println("Enter Your Choice: ");
    switch(s.nextInt())
     {
@@ -107,11 +117,16 @@ public static void main(String []args)
           System.out.println("1.Ceate Account\n2.Deposit\n3.Withdrawl\n4.Show Account Status\n5.Get Your Account Details\n6.Update Details\n7.Exit");
           System.out.println("Enter Choice: ");
           switch(s.nextInt()){
-                    case 1: a[i] = new Account();
-                            System.out.println("Account Created....");
-                            System.out.println("Account Number: "+a[i].accNo);
-                            i++;
-                            break;
+                    case 1: if(i < a.length)
+                            {a[i] = new Account();
+                             System.out.println("Account Created....");
+                             System.out.println("Account Number: "+a[i].accNo);
+                             i++;
+                             break;
+                             } else 
+                                 { System.out.println("Cannot create more accounts. Limit reached.");
+                                    }
+                              break;
                     case 2: 
                            System.out.println("Enter Account Number: ");
                            int accNo = s.nextInt();
@@ -139,22 +154,22 @@ public static void main(String []args)
                               a[j].showStatus();
                             }
                             break;
-                    case 5: System.out.println("Enter Account Number OR Mobile Number : ");
+                    case 5: System.out.println("Enter Account Number: ");
                             accNo = s.nextInt();
-                            long mNo = s.nextLong();
+                            
                            for(int j = 0; j < i; j++ )
                            {
-                            if(accNo == a[j].accNo || mNo ==a[j].mNo)
+                            if(accNo == a[j].accNo )
                               a[j].getAccountHolderDetails();
                             }
                             break;
 
-                    case 6: System.out.println("Enter Account Number OR Mobile Number : ");
+                    case 6: System.out.println("Enter Account Number: ");
                             accNo = s.nextInt();
-                            mNo = s.nextLong();
+                            
                            for(int j = 0; j < i; j++ )
                            {
-                            if(accNo == a[j].accNo || mNo ==a[j].mNo)
+                            if(accNo == a[j].accNo)
                               a[j].updateDetails();
                             }
                             break;
