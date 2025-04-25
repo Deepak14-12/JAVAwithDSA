@@ -48,15 +48,17 @@ public class HeapSort {
 		}
 	}
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter number of element you want to insert: ");
-		int arr[] = new int[sc.nextInt()];
-
+	static public void getElementsInArray(int arr[]) {
 		System.out.println("Enter element in array to sort them: ");
 		for (int i = 0; i < arr.length; i++) {
 			arr[i] = sc.nextInt();
 		}
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter number of element you want to insert: ");
+		int arr[] = new int[sc.nextInt()];
 
 		HeapSort hs = new HeapSort();
 		// sort using heap sort
