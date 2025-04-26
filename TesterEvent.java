@@ -1,27 +1,27 @@
-
 class Event{
     //Implement your code here
-    String eventName;
-    String participantName;
-    double registrationFee;
+  private  String eventName;
+  private  String participantName;
+    private double registrationFee;
     
     public Event(String eventName, String participantName){
         this.eventName = eventName;
         this.participantName = participantName;
     }
     
-    public void registerEvent(){
-         if(eventName.equals("Singing"))
-           setRegistrationFee(4);
-         else if(eventName.equals("dancing"))
-           setRegistrationFee(6);
-         else if(eventName.equals("DigitalArt"))
-           setRegistrationFee(8);
-         else if(eventName.equals("Acting"))
-           setRegistrationFee(10);
-          else
-           setRegistrationFee(0);
+ public void registerEvent(){
+         if(eventName.equals("Singing")){
+           registrationFee = 8;}
+         else if(eventName.equals("Dancing")){
+           registrationFee = 10;}
+         else if(eventName.equals("DigitalArt")){
+           registrationFee= 12;}
+         else if(eventName.equals("Acting")){
+           registrationFee = 15;}
+          else{
+           registrationFee = 0;}
         }
+   
     
     public void setEventName(String eventName){
         this.eventName = eventName;
@@ -46,64 +46,81 @@ class Event{
     
 }
 
-class SoloEvent extends Event{
-    //Implement your code here
+class SoloEvent extends Event {
     private int participantNo;
-    
-     public SoloEvent(String eventName, String participantName,int participantNo){
-        super(eventName,participantName);
+
+    public SoloEvent(String eventName, String participantName, int participantNo) {
+        super(eventName, participantName);
         this.participantNo = participantNo;
     }
-    
-     public void setParticipantNo(int participantNo){
+
+    @Override
+    public void registerEvent() {
+        if (getEventName().equals("Singing")){
+            setRegistrationFee(8);}
+        else if (getEventName().equals("Dancing")){
+            setRegistrationFee(10);}
+        else if (getEventName().equals("DigitalArt")){
+            setRegistrationFee(12);}
+        else if (getEventName().equals("Acting")){
+            setRegistrationFee(15);}
+        else{
+            setRegistrationFee(0);}
+    }
+
+    public void setParticipantNo(int participantNo) {
         this.participantNo = participantNo;
-    } 
-     public int getParticipantNo(){
+    }
+
+    public int getParticipantNo() {
         return participantNo;
     }
 }
 
-class TeamEvent extends Event{
-    //Implement your code here
+
+class TeamEvent extends Event {
     private int noOfParticipants;
     private int teamNo;
-    
-    public TeamEvent(String eventName, String participantName, int noOfParticipants,int teamNo){
-        super(eventName,participantName);
+
+    public TeamEvent(String eventName, String participantName, int noOfParticipants, int teamNo) {
+        super(eventName, participantName);
         this.noOfParticipants = noOfParticipants;
         this.teamNo = teamNo;
     }
-    
-    public void registerEvent(){
-         if(eventName.equals("Singing"))
-           setRegistrationFee(4 * noOfParticipants);
-         else if(eventName.equals("dancing"))
-           setRegistrationFee(6 * noOfParticipants);
-         else if(eventName.equals("DigitalArt"))
-           setRegistrationFee(8 * noOfParticipants);
-         else if(eventName.equals("Acting"))
-           setRegistrationFee(10 * noOfParticipants);
-          else
-           setRegistrationFee(0);
-        }
-        
-     public void setNoOfParticipants(int noOfParticipants){
+
+    @Override
+    public void registerEvent() {
+        if (getEventName().equals("Singing"))
+            setRegistrationFee(4 * noOfParticipants);
+        else if (getEventName().equals("Dancing"))
+            setRegistrationFee(6 * noOfParticipants);
+        else if (getEventName().equals("DigitalArt"))
+            setRegistrationFee(8 * noOfParticipants);
+        else if (getEventName().equals("Acting"))
+            setRegistrationFee(10 * noOfParticipants);
+        else
+            setRegistrationFee(0);
+    }
+
+    public void setNoOfParticipants(int noOfParticipants) {
         this.noOfParticipants = noOfParticipants;
-    } 
-     public int getNoOfParticipants(){
+    }
+
+    public int getNoOfParticipants() {
         return noOfParticipants;
     }
-    
-     public void setTeamNo(int teamNo){
+
+    public void setTeamNo(int teamNo) {
         this.teamNo = teamNo;
-    } 
-     public int getTeamNo(){
+    }
+
+    public int getTeamNo() {
         return teamNo;
     }
-    
 }
 
-class TesterEvent {
+
+class Tester{
 
       public static void main(String[] args) {
             
@@ -117,7 +134,6 @@ class TesterEvent {
 		} else {
 			System.out.println("Please enter a valid event");
 		}
-
 		System.out.println();
 		TeamEvent teamEvent = new TeamEvent("Acting", "Serena", 5, 1);
 		teamEvent.registerEvent();
