@@ -1,10 +1,10 @@
 
 class Faculty{
     //Implement your code here
-    String name;
-    float basicSalary;
-    float bonusPercentage;
-    float carAllowancePercentage;
+   private String name;
+   private float basicSalary;
+   private float bonusPercentage;
+   private float carAllowancePercentage;
     
     Faculty(String name,float basicSalary){
         this.name = name;
@@ -50,7 +50,7 @@ class Faculty{
 
 class OfficeStaff extends Faculty{
     //Implement your code here
-    String designation;
+   private String designation;
     
     public OfficeStaff(String name,float basicSalary, String designation ){
      super(name,basicSalary);
@@ -59,13 +59,13 @@ class OfficeStaff extends Faculty{
     
    public double calculateSalary(){
         if(designation.equals("Accountant"))
-            return (basicSalary + 10000.0);
+            return (getBasicSalary() + 10000.0);
         else if(designation.equals("Clerk"))
-            return (basicSalary + 7000.0);
+            return (getBasicSalary() + 7000.0);
         else if(designation.equals("Peon"))
-            return (basicSalary + 4500.0);
+            return (getBasicSalary() + 4500.0);
             
-            return basicSalary;
+            return getBasicSalary();
     }
     
     public void setDesignation(String designation){
@@ -94,15 +94,15 @@ class Teacher extends Faculty{
     
     public double calculateSalary(){
         if(qualification.equals("Doctoral"))
-            return (basicSalary + 20000.0);
+            return (c + 20000.0);
         else if(qualification.equals("Masters"))
-            return (basicSalary + 18000.0);
+            return (getBasicSalary() + 18000.0);
         else if(qualification.equals("Bachelors"))
-            return (basicSalary + 15500.0);
+            return (getBasicSalary() + 15500.0);
         else if(qualification.equals("Associate"))
-            return (basicSalary + 10000.0);
+            return (getBasicSalary() + 10000.0);
             
-            return basicSalary;
+            return getBasicSalary();
     }
     
 }
