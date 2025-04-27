@@ -1,10 +1,9 @@
-
 class Faculty{
     //Implement your code here
-   private String name;
-   private float basicSalary;
-   private float bonusPercentage;
-   private float carAllowancePercentage;
+ private   String name;
+ private   float basicSalary;
+ private    float bonusPercentage;
+ private    float carAllowancePercentage;
     
     Faculty(String name,float basicSalary){
         this.name = name;
@@ -50,7 +49,7 @@ class Faculty{
 
 class OfficeStaff extends Faculty{
     //Implement your code here
-   private String designation;
+ private   String designation;
     
     public OfficeStaff(String name,float basicSalary, String designation ){
      super(name,basicSalary);
@@ -92,9 +91,9 @@ class Teacher extends Faculty{
         return qualification;
     }
     
-    public double calculateSalary(){
+     public double calculateSalary(){
         if(qualification.equals("Doctoral"))
-            return (c + 20000.0);
+            return (getBasicSalary() + 20000.0);
         else if(qualification.equals("Masters"))
             return (getBasicSalary() + 18000.0);
         else if(qualification.equals("Bachelors"))
@@ -108,7 +107,7 @@ class Teacher extends Faculty{
 }
 
 
-class TesterFaculty {
+class TesterFaculty{
 	public static void main(String[] args) {
 		
 		Teacher teacher = new Teacher("Caroline", 30500f, "Masters");
