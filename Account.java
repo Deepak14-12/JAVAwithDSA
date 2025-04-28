@@ -104,6 +104,12 @@ void getAccountHolderDetails()
    }
   }
 
+ public static int takeAccountNo() {
+        System.out.println("Enter Account Number: ");
+        int enteredAccNo = s.nextInt();
+        return enteredAccNo;
+    }
+
 
 //manual programing---
 
@@ -114,7 +120,7 @@ public static void main(String []args)
  Account a[] = new Account[s.nextInt()];
  int i= 0;
  while(b){
-          System.out.println("1.Ceate Account\n2.Deposit\n3.Withdrawl\n4.Show Account Status\n5.Get Your Account Details\n6.Update Details\n7.Exit");
+          System.out.println("1.Create Account\n2.Deposit\n3.Withdrawl\n4.Show Account Status\n5.Get Your Account Details\n6.Update Details\n7.Exit");
           System.out.println("Enter Choice: ");
           switch(s.nextInt()){
                     case 1: if(i < a.length)
@@ -127,9 +133,7 @@ public static void main(String []args)
                                  { System.out.println("Cannot create more accounts. Limit reached.");
                                     }
                               break;
-                    case 2: 
-                           System.out.println("Enter Account Number: ");
-                           int accNo = s.nextInt();
+                    case 2: int accNo = takeAccountNo();
                            for(int j = 0; j < i; j++ )
                            {
                             if(accNo == a[j].accNo){
@@ -137,26 +141,22 @@ public static void main(String []args)
                                a[j].deposite(s.nextDouble());}
                             }
                             break;
-                    case 3: System.out.println("Enter Account Number: ");
-                            accNo = s.nextInt();
+                    case 3: accNo = takeAccountNo();
                            for(int j = 0; j < i; j++ )
-                           {
+                            {
                             if(accNo == a[j].accNo){
                                System.out.println("Enter Amount:");  
                                a[j].withdraw(s.nextDouble());}
                             }
                             break;
-                    case 4: System.out.println("Enter Account Number: ");
-                            accNo = s.nextInt();
+                    case 4: accNo = takeAccountNo();
                            for(int j = 0; j < i; j++ )
                            {
                             if(accNo == a[j].accNo)
                               a[j].showStatus();
                             }
                             break;
-                    case 5: System.out.println("Enter Account Number: ");
-                            accNo = s.nextInt();
-                            
+                    case 5: accNo = takeAccountNo();
                            for(int j = 0; j < i; j++ )
                            {
                             if(accNo == a[j].accNo )
@@ -164,9 +164,7 @@ public static void main(String []args)
                             }
                             break;
 
-                    case 6: System.out.println("Enter Account Number: ");
-                            accNo = s.nextInt();
-                            
+                    case 6: accNo = takeAccountNo();
                            for(int j = 0; j < i; j++ )
                            {
                             if(accNo == a[j].accNo)
