@@ -1,13 +1,16 @@
 //write a program to check given number is palindrome or not.
+//leetcode question
 import java.util.Scanner;
 class Palindrome {
-	public static void main(String[] args) {
+	public static boolean main(String[] args) {
 		// Implement your code here 
-	int	number, r = 0, remainder =0;
-	
-Scanner sc = new Scanner(System.in);
-number = sc.nextInt();
-int temp = number;
+	int number, r = 0, remainder =0;
+        Scanner sc = new Scanner(System.in);
+        number = sc.nextInt();
+		if(number < 0)
+		return false;
+        int temp = number;
+
 		
 		while(temp != 0)
 		{
@@ -18,8 +21,8 @@ int temp = number;
 		}
 		
 		if(number == r)
-		System.out.println(r +" is a palindrome");
-		else
-		System.out.println(r +"is a not a palindrome");
+		return true;
+		
+		return false;
     }
 }
