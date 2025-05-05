@@ -5,7 +5,7 @@ class college
 {   int i;
    int code;
    String name;
-   dept d[];
+   Dept d[];
 
    college()
    {
@@ -32,13 +32,14 @@ class college
   }
 }
 
-class dept
+class Dept
 {
   int code;
   String name;
   static Scanner scan=new Scanner(System.in);
-
-  dept()
+  
+  Course
+  Dept()
   {
      System.out.println("enter Dept code");
      code=scan.nextInt();
@@ -91,24 +92,65 @@ public class DemoUniversity
 class Course
 {
   int course_code;
-  String name;
+  String course_name;
   static Scanner scan=new Scanner(System.in);
 
-  dept()
+  Course()
   {
-     System.out.println("enter Dept code");
-     code=scan.nextInt();
-     System.out.println("enter Dept name");
-     name=scan.next();   	
+     System.out.println("enter course code");
+     course_code=scan.nextInt();
+     System.out.println("enter course name");
+     course_name=scan.next();   	
   }
 
-  void get_dept_info()
+
+  void get_course_info()
   {
-     System.out.println(code+" "+name);
+     System.out.println(course_code+" "+course_name);
    }
 
 }
 
+class Faculty
+{
+String fname;
+String designation;
+String fcode;
 
+Faculty()
+  {
+     System.out.println("enter faculty name");
+     fname = scan.nextLine();
+     System.out.println("enter faculty code");
+     fcode=scan.next();
+     System.out.println("enter designation code");
+     designation=scan.next();   	
+  }
 
+void get_faculty_info()
+  {
+     System.out.println(fcode+" "+fname);
+   }
+}
 
+class Students
+{
+String sfname;
+String courseEnrolled;
+String scode;
+
+Students()
+  {
+     System.out.println("enter student name: ");
+     fname = scan.nextLine();
+     System.out.println("enter student code: ");
+     fcode=scan.next();
+     System.out.println("enter course enrolled in: ");
+     designation=scan.next();   	
+  }
+
+void get_student_info()
+  {
+     System.out.println(scode+" "+sname);
+   }
+}
