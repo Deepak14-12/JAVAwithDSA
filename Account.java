@@ -15,7 +15,7 @@ static Scanner s = new Scanner(System.in);
    {    
        setAccountHolderDetails();
         accNo = nextAccNo++;
-        balance = 0.0f;
+        balance = 1000.0f;
         
    }
 
@@ -41,7 +41,7 @@ void deposite(double amt)
 
 void withdraw(double amt)
 {
-  if (amt <= balance) {
+  if (amt <= balance-1000) {
             balance -= amt;
             System.out.println("Amount withdrawn Successfully... ");
         } else {
