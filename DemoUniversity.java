@@ -1,5 +1,3 @@
-package collegelab;
-
 import java.util.Scanner;
 class college
 {   int i;
@@ -53,33 +51,51 @@ class Dept
    }
 
 }
-
 public class DemoUniversity
 {
   public static void main(String []a)
   {
-
-	//college c=new college();
-          University u=new University();
+        University u = new University();
         boolean b=true;
         while(b)
         {
-		System.out.println("1.create college\n 2. Display college\n 3.exit");
-                System.out.println("enter the option");
-                switch(dept.scan.nextByte())
+	    System.out.println("1. Create College");
+            System.out.println("2. Add Department to College");
+            System.out.println("3. Add Course + Student + Faculty to Department");
+            System.out.println("4. Add Subject to Course");
+            System.out.println("5. Display University Info");
+            System.out.println("6. Exit");
+            System.out.print("Enter your option: ");
+                switch(Dept.scan.nextByte())
 		{
-
 			case 1:
-				u.set(new college());
-				dept.scan.nextInt();
+				u.set(new College());
 				break;
 			case 2:
-				u.get_university_info();
-				dept.scan.nextInt();				
-				break;
+				if(u.lastCollege() !=null)
+                                u.lastCollege().set(new Dept());
+                                break;
 			case 3:
+	                       if (u.lastCollege() != null && u.lastCollege().lastDept() != null) 
+                                 {
+                                   u.lastCollege().lastDept().set(new Course(), new Students(), new Faculty());
+                                  }
+                               break;
+			case 4:
+			       if (u.lastCollege() != null && u.lastCollege().lastDept() != null && u.lastCollege().lastDept().lastCourse() != null) 
+                                 {
+                                   u.lastCollege().lastDept().lastCourse().set(new Subject());
+                                 }
+                       
+                        case 5:
+				u.get_university_info();			
+				break;
+			case 6:
 				b=false;
-		}
+                                break;
+                        default:
+                                System.out.println("Invalid Option!"); 
+		} 
                
 	}
 	
@@ -88,7 +104,6 @@ public class DemoUniversity
   }
 
 }
-
 class Course
 {
   int course_code;
