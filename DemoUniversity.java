@@ -36,28 +36,58 @@ class College
   }
 }
 
-
 class Dept
-{
+{ 
+  int i,j,k;
   int code;
   String name;
+  Course course[];
+  Students student[];
+  Faculty faculty[];
+
   static Scanner scan=new Scanner(System.in);
-  
-  Course
+
   Dept()
   {
-     System.out.println("enter Dept code");
+     System.out.print("Enter Department code: ");
      code=scan.nextInt();
-     System.out.println("enter Dept name");
-     name=scan.next();   	
+     System.out.print("Enter Department name:");
+     name=scan.next();   
+     System.out.print("Enter no of courses:");
+     course = new Course[Dept.scan.nextByte()];
+     System.out.print("Enter no of students:");
+     student = new Students[Dept.scan.nextByte()];	
+     System.out.print("Enter no of faculties:");
+     faculty = new Faculty[Dept.scan.nextByte()];		
   }
-
+  
+  void set(Course course,Students student,Faculty faculty)
+   {
+     this.course[i++]=course;    
+     this.student[j++]=student;      
+     this.faculty[k++]=faculty;
+  }
+  
+  Course lastCourse(){
+         if(i > 0)
+             {return course[i-1];}
+  return null;
+}
   void get_dept_info()
   {
-     System.out.println(code+" "+name);
+     System.out.println("Department: "+code+" "+name);
+     for(int j=0; j < i;j++)
+      {
+         course[j].get_course_info();
+         if(j < faculty.length)
+            faculty[j].get_faculty_info();
+         if(j < student.length)
+            student[j].get_students_info();
+     }
    }
 
 }
+
 public class DemoUniversity
 {
   public static void main(String []a)
