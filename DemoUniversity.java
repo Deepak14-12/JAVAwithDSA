@@ -102,8 +102,45 @@ public class DemoUniversity
 	
 	System.out.println("Thank you Visit again");
   }
-
 }
+
+class University
+{   int i;
+   int uni_code;
+   String uni_name;
+   College c[];
+
+   University()
+   {
+     System.out.println("Enter University code: ");
+     uni_code=Dept.scan.nextInt();
+     System.out.println("Enter University name: ");
+     uni_name=Dept.scan.next();
+     System.out.println("Enter no of college: ");
+     c = new College[Dept.scan.nextByte()];
+     
+   }  
+
+   void set(College c1)
+   {
+     c[i++] = c1;
+   }
+   
+    void lastCollege(){
+    if(i>0){return c[i-1];}
+    return null;
+   }
+
+   void get_university_info()
+   {
+     System.out.println(uni_code+" "+uni_name);
+     for(int j=0;j<i;j++)
+      {
+         c[j].get_college_info();
+     }
+  }
+}
+
 class Course
 {
   int course_code;
