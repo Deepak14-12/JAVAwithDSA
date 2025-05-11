@@ -1,34 +1,41 @@
 import java.util.Scanner;
-class college
-{   int i;
+class College
+{  int i;
    int code;
    String name;
    Dept d[];
 
-   college()
+   College()
    {
-     System.out.println("enter college code");
-     code=dept.scan.nextInt();
-     System.out.println("enter college name");
-     name=dept.scan.next();
-     System.out.println("enter no of department");
-     d=new dept[dept.scan.nextByte()];
+     System.out.print("Enter college code: ");
+     code = Dept.scan.nextInt();
+     System.out.print("Enter college name: ");
+     name = Dept.scan.next();
+     System.out.print("Enter no of department: ");
+     d = new Dept[Dept.scan.nextByte()];
+     
    }  
-
-   void set(dept d1)
+   
+   void set(Dept d1)
    {
      d[i++]=d1;     
-  }
+   }
+    
+   void lastDept(){
+    if(i>0){return d[i-1];}
+    return null;
+   }
 
    void get_college_info()
    {
-     System.out.println(code+" "+name);
-     for(int j=0;j<i;j++)
+     System.out.println("College: "+code+" "+name);
+     for(int j=0; j<i; j++)
       {
          d[j].get_dept_info();
      }
   }
 }
+
 
 class Dept
 {
