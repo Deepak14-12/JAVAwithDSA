@@ -1,4 +1,20 @@
+class Student extends Person {
+	String rollNo;
+        String clg;
+	
+        void setStudent() {
+        System.out.print("Enter rollno: ");
+        rollNo = sc.nextLine();
+        System.out.print("Enter college name: ");
+        clg = sc.nextLine();
+        }
 
+    void getStudent() {
+        System.out.println("RollNO: " + rollNo);  
+        System.out.println("College: " + clg); 
+  }
+
+}
 class Result extends Student {
     String subject[] = new String[5];
     int subcode[]= new int[5];
