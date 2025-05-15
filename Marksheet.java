@@ -1,3 +1,38 @@
+package result;
+import java.util.Scanner;
+class Person {
+	String name;
+        long mno;
+        String dob;
+        String fName;
+        String mName;
+        String address; 
+    Scanner sc = new Scanner(System.in);
+	
+    void setPerson() {
+    
+        System.out.print("Enter name: ");
+        name = sc.nextLine();
+        System.out.print("Enter Date of Birth: ");
+        dob = sc.nextLine();
+     
+        System.out.print("Enter father's name: ");
+        fName = sc.nextLine();
+        System.out.print("Enter mother's name: ");
+        mName = sc.nextLine();
+        System.out.print("Enter address name: ");
+        address = sc.nextLine();
+    }
+
+    void getPerson() {
+        System.out.println("Name: " + name);
+        System.out.println("DOB: " + dob);
+        System.out.println("Father: " + fName);
+        System.out.println("Mother: " + mName);
+        System.out.println("Address: " + address);
+    }
+
+	}
 class Student extends Person {
 	String rollNo;
         String clg;
