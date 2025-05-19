@@ -20,7 +20,7 @@ public class FindSubsetsBTR {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		String  str = "abcd";
-		findSubsets(str," ",0);
+		findSubsets(str,"",0);
 
 	}
 
