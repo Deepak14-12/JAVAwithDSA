@@ -1,5 +1,5 @@
+//Problem: check if problem can be solved & print only 1 solution to N Queens Problem. 
 package alpha;
-
 public class NQueensCheckSolution {
 
 	public static boolean nQueens(char[][] board, int row) {
