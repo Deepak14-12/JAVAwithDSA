@@ -1,5 +1,5 @@
+//N-Queens problem: place N Queens on an NxN chessBoard such thasat no 2 queens can attack on each other. 
 package alpha;
-
 public class NQueens {
 	public static void nQueens(char[][] board, int row) {
 		// base case
