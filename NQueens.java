@@ -1,10 +1,11 @@
-//N-Queens problem: place N Queens on an NxN chessBoard such thasat no 2 queens can attack on each other. 
+//N-Queens problem: place N Queens on an NxN chessBoard such thasat no 2 queens can attack on each other. and count solution and print.
 package alpha;
 public class NQueens {
 	public static void nQueens(char[][] board, int row) {
 		// base case
 		if (row == board.length) {
 			printBoard(board);
+			count++;
 			return;
 		}
 
@@ -47,7 +48,7 @@ public class NQueens {
 			System.out.println();
 		}
 	}
-
+        static int count = 0; 
 	public static void main(String[] args) {
 		int n = 4;
 		char board[][] = new char[n][n];
@@ -59,5 +60,6 @@ public class NQueens {
 		}
 
 		nQueens(board, 0);
+		System.out.println("total ways to solve N Queens = "+ count);
 	}
 }
