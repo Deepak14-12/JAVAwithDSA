@@ -1,3 +1,4 @@
+//problem: find the ways to reach (n-1,m-1) in a grid. allowed moves- right or down
 public class FindGridWays {
 	// i = currentRow, j = currentColumn, n = total rows , m = total columns
 	public static int gridWays(int i, int j, int n, int m) {
