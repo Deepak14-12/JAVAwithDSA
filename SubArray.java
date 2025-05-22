@@ -1,5 +1,3 @@
-package alpha;
-
 public class SubArray {
 	public static void subArray(int[] array) {
 		int ts = 0;
@@ -16,13 +14,10 @@ public class SubArray {
 					System.out.print(array[k] + " "); // sub array
 					currSum += array[k];
 				}
-				
-				
 				ts++;
 				System.out.print("Sum of subArray" + currSum);
 				if(maxSum < currSum)
 					maxSum = currSum;
-				
 				System.out.println();
 			}
 			System.out.println();
