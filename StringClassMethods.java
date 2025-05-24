@@ -36,5 +36,34 @@ System.out.println(s.length());5
 public String replace(char oldch, char newCh) 
 String s = "ababa"; 
 System.out.println(s.replace('a','b'));
+//----------------------------------------------
+public int indexOf(char ch); 
+returns index of first occurrence of specified character 
+public int lastIndexOf(char ch); 
+String s="ababa"; 
+System.out.println(s.indexOf('a'));//0 
+System.out.println(s.lastIndexOf('a'));//4 
+//----------------------------------------------
+String s = "java"; 
+- System.out.println(s.equals("JAVA"));//false 
+System.out.println(s.equalsIgnoreCase("JAVA"));//true 
+//----------------------------------------------
+public boolean equals(Object o)  
+To perform content comparison where case is important. 
+This is overriding version of Object class equals() method 
+ public boolean equalsIgnoreCase(String s)
+To perform content comparison where case is not important. 
+//-------------------------------------------------------  
+public String concat(String s) 
+The overloaded + and += operators also meant for concatenation purpose only. 
+
+String s = "durga"; 
+
+ s = s.concat("software"); 
+// s = s+"software"; 
+//s += "software"; 
+System.out.println(s);//durgasoftware 
+
+*/
 }
 }
