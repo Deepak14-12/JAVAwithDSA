@@ -29,6 +29,18 @@ public class AutoboxingUnboxing
     int i = I; 
     System.out.println(i); // RE: nullPointerException
       }
+  -------------------------------------
+  ** all wrapper class objects are immutable.
+   *example 3:
+   public static void main(String[] args)
+   {
+    Integer x = 10 ; 
+    Integer y = x ; 
+    ++x;
+    System.out.println(x); //11
+    System.out.println(y); //10
+    System.out.println(x==y); //false
+      }
   -----------------------------------
  */   
 }
