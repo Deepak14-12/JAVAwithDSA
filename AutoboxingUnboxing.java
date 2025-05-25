@@ -42,5 +42,28 @@ public class AutoboxingUnboxing
     System.out.println(x==y); //false
       }
   -----------------------------------
+  
+    Integer x = new Integer(10) ; 
+    Integer y = new Integer(10) ; 
+    System.out.println(x==y); //false
+      
+  -----------------------------------
+    Integer x = new Integer(10) ; 
+    Integer y = 10 ; 
+    System.out.println(x==y); //false
+      
+  -----------------------------------
+    Integer x = 10; 
+    Integer y = 10 ; 
+    System.out.println(x==y); //true
+      
+  -----------------------------------
+    Integer x = 100; 
+    Integer y = 100; 
+    System.out.println(x==y); //true
+  -----------------------------------
+    Integer x = 1000; 
+    Integer y = 1000; 
+    System.out.println(x==y); //false
  */   
 }
