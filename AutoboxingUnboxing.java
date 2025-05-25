@@ -74,7 +74,9 @@ public class AutoboxingUnboxing
     * to implement autoboxing concept in every wrapper class a buffer of object will be created (except for Float and Double)at the time of class loading.
     * by autoboxing of an object is required to create then JVM will check for the avalibily of that object in buffer.
     * if object not available in buffer then new object will be created.
-    * the only range availble in buffer is from -128 to 127 for every wrapper class. for boolean range is always true.
+    * the only range availble in buffer is from -128 to 127 for every wrapper class.
+    *  for Boolean range is always true.
+    *  for Character range is 0 to 127.
     * thats why it gives false in example 8.  
   */
 }
