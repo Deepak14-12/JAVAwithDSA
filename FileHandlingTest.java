@@ -14,6 +14,13 @@ class FileHandlingTest
    f.mkdir(); // creates directory in current working directory 
    System.out.println(f.exists()); //true
 //-------------------------------------------
+ File f = new File("house1");
+  System.out.println(f.exists()); 
+  f.mkdir();
+  File f1 = new File(f,"khairi2.txt");
+  f1.createNewFile();
+  System.out.println(f.exists()); 
+//-----------------------------------------------
   File f = new File("D:\\JAVA\\collegedemo\\src\\house","abc.txt");
   System.out.println(f.exists()); //true
   f.createNewFile();  // creates file in specified subdirectopry that are in current working directory
