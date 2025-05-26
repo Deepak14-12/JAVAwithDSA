@@ -28,9 +28,10 @@ class ShollowColoning
  {
    Cat c = new Cat(10);
    Dog d1 = new Dog(c,10);
+   System.out.println("dog: "+d1.i+" ----- cat: "+d1.c.j);
    Dog d2= (Dog) d1.clone();
    d2.i = 888;
    d2.c.j = 999;
-   System.out.println(d1.i+"-----"+d1.c.j);
+  System.out.println("dog: "+d1.i+" ----- cat: "+d1.c.j);
  }
 }
