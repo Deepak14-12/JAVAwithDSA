@@ -1,7 +1,7 @@
 package filehandling;
 import java.io.*;
 
-//FileWriter: using FileWriter obj we can write character data to the file 
+//FileReader: using FileReader obj we can read character data from the file 
 
 class FileReaderTests
 {
