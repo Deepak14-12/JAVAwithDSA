@@ -22,7 +22,7 @@ class Dog implements Cloneable
    return super.clone();
  }
 }
-class ShollowColoning
+class ShollowCloning
 {
  public static void main(String[] args) throws   CloneNotSupportedException
  {
