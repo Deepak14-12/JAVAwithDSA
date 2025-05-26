@@ -1,6 +1,6 @@
 package alpha;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class ArrayListDemo {
 //method for swapping two elements in the list
@@ -9,9 +9,16 @@ public class ArrayListDemo {
 		int temp = list.get(idx1);
 		list.set(idx1, list.get(idx2));
 		list.set(idx2, temp);
-
 	}
+        public static void sortingElements(ArrayList<Integer> list) {
+		System.out.println("\nbefore sorting:\n" + list);
+		Collections.sort(list);
+		System.out.println("after sorting in ascending order:\n" + list);
 
+		System.out.println("\nbefore sorting:\n" + list);
+		Collections.sort(list, Collections.reverseOrder());
+		System.out.println("after sorting in descending order:\n" + list);
+	}
 	public static void main(String[] args) {
 		ArrayList<Integer> list = new ArrayList<>();
 
@@ -24,5 +31,8 @@ public class ArrayListDemo {
 		System.out.println("before swapping:\n" + list);
 		swapElements(list, idx1, idx2);  //called method for swapping
 		System.out.println("after swapping:\n" + list);
+
+		sortingElements(list);
+
 	}
 }
