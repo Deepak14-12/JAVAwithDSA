@@ -1,12 +1,24 @@
+//demo program for customized serialization to recover loss of information which is happen due to transient keyword.
 package serialization;
 import java.io.*;
-//demo program for customized serialization to recover loss of information which is happen due to transient keyword.
+
 class Account implements Serializable
 {
  String username = "deepak";
  transient String pwd= "rush";
+ private void writeObject(ObjectOutputStream os) throws Exception
+ {
+  os.defaultWriteObject();
+  String epwd = "123"+pwd;
+  os.writeObject(epwd);
 }
-
+ private void readObject(ObjectInputStream is) throws Exception
+ {
+  is.defaultReadObject();
+  String epwd = (String)is.readObject();
+  pwd = epwd.substring(3);
+ }
+}
 class CustomSerializedDemo
 {
  public static void main(String[] args) throws Exception
