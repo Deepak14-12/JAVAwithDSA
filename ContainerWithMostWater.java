@@ -17,6 +17,26 @@ public class ContainerWithMostWater {
 		}
 		return maxWater;
 	}
+        // 2 Pointer Approach: TC = O(n) Linear Time
+	public static int saveWater2P(ArrayList<Integer> heights) {
+		int maxWater = 0;
+		int leftPointer = 0;
+		int rightPointer = heights.size() - 1;
+		// Calculate Water Area
+		while (leftPointer < rightPointer) {
+			int height = Math.min(heights.get(leftPointer), heights.get(rightPointer));
+			int width = rightPointer - leftPointer;
+			int currentWater = height * width;
+			maxWater = Math.max(maxWater, currentWater);
+
+			// Update Pointer
+			if (heights.get(leftPointer) < heights.get(rightPointer))
+				leftPointer++;
+			else
+				rightPointer--;
+		}
+		return maxWater;
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -31,8 +51,8 @@ public class ContainerWithMostWater {
 		heights.add(3);
 		heights.add(7);
 
-		 System.out.println("max water can be hold: " + saveWaterBF(heights));
-
+	//	System.out.println("max water can be hold: " + saveWaterBF(heights));
+                System.out.println("max water can be hold: " + saveWater2P(heights));
 	}
 
 }
