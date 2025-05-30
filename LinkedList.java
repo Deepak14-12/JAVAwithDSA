@@ -111,13 +111,27 @@ public class LinkedList {
 		// prev: i = size-2
 		Node prev = head;
 		for (int i = 0; i < size - 2; i++) {
-          prev = prev.next;
+			prev = prev.next;
 		}
-		int value = prev.next.data; //tail's data
+		int value = prev.next.data; // tail's data
 		prev.next = null;
 		tail = prev;
 		size--;
 		return value;
+	}
+
+	public int itrSearch(int key) {
+		Node temp = head;
+		int idx = 0;
+		while (temp != null) {
+			if (temp.data == key) {
+				return idx;  //key found
+			}
+			temp = temp.next;
+			idx++;
+		}
+		//key not found
+		return -1;
 	}
 
 	public static void main(String[] args) {
@@ -142,6 +156,7 @@ public class LinkedList {
 		System.out.println("removed element: " + ll.removeLast());
 		ll.printList();
 		System.out.println("size of linked list: " + size);
+		System.out.println("Key found at: "+ll.itrSearch(21));
 	}
 
 }
