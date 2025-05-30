@@ -14,12 +14,12 @@ public class LinkedList {
 
 	public static Node head;
 	public static Node tail;
-
+        public static int size;
 	// Add at First
 	public void addAtFirst(int data) {
 		// step-1 create new node
 		Node newNode = new Node(data);
-
+                size++;
 		if (head == null) {
 			head = tail = newNode;
 			return;
@@ -34,7 +34,7 @@ public class LinkedList {
 	public void addAtLast(int data) {
 		// step-1 create new node
 		Node newNode = new Node(data);
-
+                size++;
 		if (head == null) {
 			head = tail = newNode;
 			return;
@@ -45,7 +45,25 @@ public class LinkedList {
 		// step-3 tail = newNode
 		tail = newNode;
 	}
-
+        public void addInMiddle(int index, int data) {
+		// step-1 create new node
+		Node newNode = new Node(data);
+                size++;
+		if (index == 0) {
+			addAtFirst(data);
+			return;
+		}
+		Node temp = head;
+		int i = 0;
+		// step-2 traverse till index-1
+		while (i < index - 1) {
+			temp = temp.next;
+			i++;
+		}
+		//step-3 add links  
+		newNode.next = temp.next;
+		temp.next = newNode;
+	}
 	// print linked list
 	public void printList() {
 		if (head == null) {
