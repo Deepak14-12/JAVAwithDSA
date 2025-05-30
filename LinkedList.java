@@ -90,7 +90,11 @@ public class LinkedList {
 		ll.printList();
 		ll.addAtLast(14);
 		ll.printList();
-	
+	        ll.addInMiddle(0, 17);
+		ll.printList();
+		ll.addInMiddle(3, 21);
+		ll.printList();
+		System.out.println("size of linked list: "+size); 
 	}
 
 }
