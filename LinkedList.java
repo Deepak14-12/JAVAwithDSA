@@ -14,12 +14,13 @@ public class LinkedList {
 
 	public static Node head;
 	public static Node tail;
-        public static int size;
+	public static int size;
+
 	// Add at First
 	public void addAtFirst(int data) {
 		// step-1 create new node
 		Node newNode = new Node(data);
-                size++;
+		size++;
 		if (head == null) {
 			head = tail = newNode;
 			return;
@@ -34,7 +35,7 @@ public class LinkedList {
 	public void addAtLast(int data) {
 		// step-1 create new node
 		Node newNode = new Node(data);
-                size++;
+		size++;
 		if (head == null) {
 			head = tail = newNode;
 			return;
@@ -45,10 +46,10 @@ public class LinkedList {
 		// step-3 tail = newNode
 		tail = newNode;
 	}
-        public void addInMiddle(int index, int data) {
+
+	public void addInMiddle(int index, int data) {
 		// step-1 create new node
 		Node newNode = new Node(data);
-                size++;
 		if (index == 0) {
 			addAtFirst(data);
 			return;
@@ -60,10 +61,12 @@ public class LinkedList {
 			temp = temp.next;
 			i++;
 		}
-		//step-3 add links  
+		// step-3 add links
 		newNode.next = temp.next;
 		temp.next = newNode;
+		size++;
 	}
+
 	// print linked list
 	public void printList() {
 		if (head == null) {
@@ -79,6 +82,44 @@ public class LinkedList {
 
 	}
 
+	public int removeFirst() {
+		if (size == 0) {
+			System.out.println("linked list is empty.");
+			return Integer.MIN_VALUE;
+		} else if (size == 1) {
+			int value = head.data;
+			head = tail = null;
+			size = 0;
+			return value;
+		}
+		int value = head.data;
+		head = head.next;
+		size--;
+		return value;
+	}
+
+	public int removeLast() {
+		if (head == null) {
+			System.out.println("linked list is empty.");
+			return Integer.MIN_VALUE;
+		} else if (head.next == null) {
+			int value = head.data;
+			head = tail = null;
+			size = 0;
+			return value;
+		}
+		// prev: i = size-2
+		Node prev = head;
+		for (int i = 0; i < size - 2; i++) {
+          prev = prev.next;
+		}
+		int value = prev.next.data; //tail's data
+		prev.next = null;
+		tail = prev;
+		size--;
+		return value;
+	}
+
 	public static void main(String[] args) {
 		LinkedList ll = new LinkedList();
 		ll.printList();
@@ -90,11 +131,17 @@ public class LinkedList {
 		ll.printList();
 		ll.addAtLast(14);
 		ll.printList();
-	        ll.addInMiddle(0, 17);
+		ll.addInMiddle(0, 17);
 		ll.printList();
 		ll.addInMiddle(3, 21);
 		ll.printList();
-		System.out.println("size of linked list: "+size); 
+		System.out.println("size of linked list: " + size);
+		System.out.println("removed element: " + ll.removeFirst());
+		ll.printList();
+		System.out.println("size of linked list: " + size);
+		System.out.println("removed element: " + ll.removeLast());
+		ll.printList();
+		System.out.println("size of linked list: " + size);
 	}
 
 }
