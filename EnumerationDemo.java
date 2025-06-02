@@ -18,5 +18,6 @@ class EnumerationDemo
       System.out.println(I);
    }
    System.out.println(v);
+  System.out.println(e.getClass().getName()); //get class name for object e
   }
 }
