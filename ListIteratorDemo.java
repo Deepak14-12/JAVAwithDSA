@@ -26,5 +26,6 @@ class ListIteratorDemo
       itr.set("yaadvi"); 
   }
   System.out.println(ll);
+    System.out.println(itr.getClass().getName()); //get class name of itr object
  }
 }
