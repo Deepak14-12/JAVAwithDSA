@@ -1,7 +1,7 @@
 package alpha;
 
 public class LinkedList {
-	// node creation
+	// node creation (inner class)
 	public class Node {
 		int data;
 		Node next;
@@ -125,58 +125,114 @@ public class LinkedList {
 		int idx = 0;
 		while (temp != null) {
 			if (temp.data == key) {
-				return idx;  //key found
+				return idx; // key found
 			}
 			temp = temp.next;
 			idx++;
 		}
-		//key not found
+		// key not found
 		return -1;
 	}
-        // Helper to find middle of the list
-    private Node findMiddle(Node head) {
-        Node slow = head;
-        Node fast = head;
 
-        while (fast != null && fast.next != null) {
-            slow = slow.next;      // move one step
-            fast = fast.next.next; // move two steps
-        }
+	public int recursiveSearch(int key) {
+		return helperRecSearch(head, key);
+	}
 
-        return slow; // middle node
-    }
+	public int helperRecSearch(Node head, int key) {
+		// base case
+		if (head == null)
+			return -1;
 
-    public boolean checkPalindrome() {
-        if (head == null || head.next == null)
-            return true;
+		if (head.data == key)
+			return 0;
+		int index = helperRecSearch(head.next, key);
+		if (index == -1)
+			return -1;
 
-        // Step 1: Find the middle of the list
-        Node midNode = findMiddle(head);
+		return index + 1;
+	}
 
-        // Step 2: Reverse the second half of the list
-        Node prev = null;
-        Node current = midNode;
-        while (current != null) {
-            Node next = current.next;
-            current.next = prev;
-            prev = current;
-            current = next;
-        }
+	public void reverseITR() {
+		Node prev = null;
+		Node current = tail = head;
+		Node next;
+		while (current != null) {
+			next = current.next;
+			current.next = prev;
+			prev = current;
+			current = next;
+		}
+		head = prev;
+	}
 
-        // Step 3: Compare the first and second halves
-        Node left = head;
-        Node right = prev; // Head of reversed second half
+	public void deleteNthFromEnd(int n) {
+		// calculati size of list
+		int s = 0; // size
+		Node temp = head;
+		while (temp != null) {
+			temp = temp.next;
+			s++;
+		}
+		if (n == s) {
+			head = head.next; // remove first element
+			return;
+		}
 
-        while (right != null) {
-            if (left.data != right.data) {
-                return false;
-            }
-            left = left.next;
-            right = right.next;
-        }
+		// (size - n ) index
+		int i = 1;
+		int iToFind = s - n;
+		Node prev = head;
+		while (i < iToFind) {
+			prev = prev.next;
+			i++;
+		}
+		prev.next = prev.next.next;
+		return;
+	}
 
-        return true;
-    }
+// slow-fast approach
+	public Node findMiddle(Node head) { // helper for palindrome ll
+		Node slow = head;
+		Node fast = head;
+
+		while (fast != null && fast.next != null) {
+			slow = slow.next; // +1
+			fast = fast.next.next; // +2
+		}
+		return slow; // slow is the middleNode
+	}
+
+	public boolean checkPalindrome() {
+		// if linkedlist is empty or has one node
+		if (head == null || head.next == null)
+			return true;
+
+		// step1 - find middle
+		Node midNode = findMiddle(head);
+		// step2 - reverse 2nd half
+		Node prev = null;
+		Node current = midNode;
+		Node next;
+		while (current != null) {
+			next = current.next;
+			current.next = prev;
+			prev = current;
+			current = next;
+		}
+
+		Node right = prev; // right half head
+		Node left = head;
+		// step3 - check left half == right half
+		while (right != null) {
+			if (left.data != right.data) {
+				return false;
+			}
+			left = left.next;
+			right = right.next;
+		}
+		return true;
+	}
+
 	public static void main(String[] args) {
 		LinkedList ll = new LinkedList();
 		ll.printList();
@@ -199,7 +255,14 @@ public class LinkedList {
 		System.out.println("removed element: " + ll.removeLast());
 		ll.printList();
 		System.out.println("size of linked list: " + size);
-		System.out.println("Key found at: "+ll.itrSearch(21));
+		System.out.println("(Iterative search)Key found at: " + ll.itrSearch(21));
+
+		System.out.println("(Recursive search)key found at: " + ll.recursiveSearch(11));
+		ll.reverseITR();
+		ll.printList();
+		ll.deleteNthFromEnd(3); // 3rd element from end
+		ll.printList();
+		System.out.println(ll.checkPalindrome()); //check ll is palindrome ?
 	}
 
 }
