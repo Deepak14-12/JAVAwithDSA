@@ -133,7 +133,50 @@ public class LinkedList {
 		//key not found
 		return -1;
 	}
+        // Helper to find middle of the list
+    private Node findMiddle(Node head) {
+        Node slow = head;
+        Node fast = head;
 
+        while (fast != null && fast.next != null) {
+            slow = slow.next;      // move one step
+            fast = fast.next.next; // move two steps
+        }
+
+        return slow; // middle node
+    }
+
+    public boolean checkPalindrome() {
+        if (head == null || head.next == null)
+            return true;
+
+        // Step 1: Find the middle of the list
+        Node midNode = findMiddle(head);
+
+        // Step 2: Reverse the second half of the list
+        Node prev = null;
+        Node current = midNode;
+        while (current != null) {
+            Node next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+
+        // Step 3: Compare the first and second halves
+        Node left = head;
+        Node right = prev; // Head of reversed second half
+
+        while (right != null) {
+            if (left.data != right.data) {
+                return false;
+            }
+            left = left.next;
+            right = right.next;
+        }
+
+        return true;
+    }
 	public static void main(String[] args) {
 		LinkedList ll = new LinkedList();
 		ll.printList();
