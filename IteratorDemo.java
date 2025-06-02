@@ -18,5 +18,6 @@ class IteratorDemo
       itr.remove();
   }
   System.out.println(al); //[0,2,4,6,8,10] 
+    System.out.println(itr.getClass().getName()); //get class name for itr object
  }
 }
