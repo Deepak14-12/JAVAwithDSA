@@ -1,7 +1,4 @@
 package collectionframework;
-
-import alpha.LinkedList.Node;
-
 public class DoublyLInkedList {
 	public class Node {
 		int data;
