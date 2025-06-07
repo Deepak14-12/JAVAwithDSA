@@ -1,5 +1,7 @@
 package collectionframework;
 
+import alpha.LinkedList.Node;
+
 public class DoublyLInkedList {
 	public class Node {
 		int data;
@@ -30,6 +32,22 @@ public class DoublyLInkedList {
 		head.prev = newNode;
 		head = newNode;
 	}
+	
+	// add node AT Last
+	public void addLast(int data) {
+		// step-1 create new node
+		Node newNode = new Node(data);
+		size++;
+		if (head == null) {
+			head = tail = newNode;
+			return;
+		}
+		
+		// step-2 
+		newNode.prev = tail;
+		tail.next = newNode;
+        tail = newNode;
+	}
 
 	// remove node AT First
 	public static int removeFirst() {
@@ -45,10 +63,26 @@ public class DoublyLInkedList {
 		int value = head.data;
 		head = head.next;
 		head.prev = null;
+		size--;
 		return value;
 
 	}
-
+//reverse DoublyLL
+	public void reverseLL() {
+	Node current = head;
+	Node prev = null;
+	Node next;
+	
+	while(current != null) {
+		next = current.next;
+		current.next = prev;
+		current.prev = next;
+		
+		prev = current;
+		current = next;
+	}
+	head = prev;
+	}
 	// print linked list
 	public void printList() {
 		if (head == null) {
@@ -72,7 +106,13 @@ public class DoublyLInkedList {
 		addFirst(13);
 		addFirst(14);
 		dll.printList();
+		dll.addLast(56);
+		dll.printList();
+		System.out.println(size);
 		int removedNode = removeFirst();
 		System.out.println("removed element: "+removedNode);
+		System.out.println(size);
+		dll.reverseLL();
+		dll.printList();
 	}
 }
