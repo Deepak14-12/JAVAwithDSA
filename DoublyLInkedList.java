@@ -32,8 +32,21 @@ public class DoublyLInkedList {
 	}
 
 	// remove node AT First
-	public static void removeFirst() {
-    
+	public static int removeFirst() {
+		if (size == 0) { // if(head==null)
+			System.out.println("linked list is empty.");
+			return Integer.MIN_VALUE;
+		} else if (size == 1) {
+			int value = head.data;
+			head = tail = null;
+			size = 0;
+			return value;
+		}
+		int value = head.data;
+		head = head.next;
+		head.prev = null;
+		return value;
+
 	}
 
 	// print linked list
@@ -50,8 +63,16 @@ public class DoublyLInkedList {
 		System.out.println("null");
 
 	}
+
 	static DoublyLInkedList dll = new DoublyLInkedList();
+
 	public static void main(String[] args) {
-	//System.out.println(dll.getClass());	;
+		// System.out.println(dll.getClass()); ;
+		addFirst(12);
+		addFirst(13);
+		addFirst(14);
+		dll.printList();
+		int removedNode = removeFirst();
+		System.out.println("removed element: "+removedNode);
 	}
 }
