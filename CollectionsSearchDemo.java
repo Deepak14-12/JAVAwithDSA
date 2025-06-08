@@ -4,6 +4,7 @@ import java.util.*;
 /**Searching the element of list using 
   *Colections.binarySearch(List l, Object target); 
   *Colections.binarySearch(List l, Object target, Comparator c);
+  * reverse list: Collections.reverse(list l);
   */
 
 class CollectionsSearchDemo
@@ -48,6 +49,9 @@ class CollectionsSearchDemo
  System.out.println(Collections.binarySearch(al,13,new MyComparator())); //-3 insertion point
   System.out.println(Collections.binarySearch(al,17)); //-6 insertion point
 
+// reverse list
+  Collections.reverse(al);
+  System.out.println(al);
  } 
    
 }
