@@ -20,4 +20,4 @@ class MyComparatorQ implements Comparator
    String s2 = obj2.toString();
    return s2.compareTo(s1);
   }
-} explain the output
+} 
