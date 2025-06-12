@@ -1,0 +1,19 @@
+import java.awt.*;
+import java.applet.*;
+
+public class StartMethodExample extends Applet {
+    String msg = "";
+
+    public void init() {
+        msg = "Initializing... ";
+    }
+
+    public void start() {
+        msg += "Starting Applet... ";
+        repaint();
+    }
+
+    public void paint(Graphics g) {
+        g.drawString(msg, 20, 20);
+    }
+}
